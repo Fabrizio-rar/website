@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const name = "Hi, I'm Fabrizio"
-const description = "I'm a developer"
-
-export const TypingText = () => {
+export const TypingText = ({ name, description }) => {
     const [typedName, setTypedName] = useState("")
     const [typedDesc, setTypedDesc] = useState("")
     const [className, setClassName] = useState("blinking-cursor")
@@ -17,7 +14,7 @@ export const TypingText = () => {
             setClassName("")
             setClassDesc("blinking-cursor")
         }
-    }, [typedName])
+    }, [typedName, name])
 
     useEffect(() => {
         if(typedName.length === name.length) {
@@ -25,12 +22,12 @@ export const TypingText = () => {
                 setTypedDesc(description.slice(0, typedDesc.length + 1))
             }, 100)
         }
-    }, [typedDesc, typedName])
+    }, [typedDesc, typedName, name, description])
 
     return (
-        <>
+        <div className='text-flex-col'>
             <h1 className={className}>{typedName}</h1>
             <h1 className={classDesc}>{typedDesc}</h1>
-        </>
+        </div>
     )
 }

@@ -1,23 +1,81 @@
+@font-face {
+  font-family: "Helvetica Neu Bold";
+  src: local("Helvetica Neu Bold"),
+    url("./fonts/Helvetica\ Neu\ Bold.ttf") format("truetype");
+}
+
 h1 {
-  font-size: 3rem;
-  font-family: 'IBM Plex Mono';
+  font-size: 5rem;
+  font-family: 'Helvetica Neu Bold';
   margin-top: 0rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  color: #F5F5F5;
+}
+
+h2 {
+  font-size: 2rem;
+  font-family: 'Helvetica Neu Bold';
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+  color: #F5F5F5;
+}
+
+a {
+  font-size: 1.5rem;
+  font-family: 'Helvetica Neu Bold';
+  text-decoration: none;
+  color: #3E6D9C;
+}
+
+.w-75 {
+  width: 75%;
+}
+.w-25 {
+  width: 25%;
+}
+
+.header {
+  width: 95%;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header-link {
+  padding-left: 15px;
+  font-size: 1.3rem;
 }
 
 .background {
-  background-image: url("../public/background.jpg");
-  height: fit-content;
+  background-color: #001253;
+  background-image: url('images/mountains.svg');
+  background-size: 100% 100%;
   width: 100%;
-
+  height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 .name-card {
-  width: 60%;
-  padding-top: 10rem;
+  width: 100%;
+  padding-top: 6rem;
 
+  display: flex;
+  flex-direction: column;
+}
+
+.mountains {
+  position: fixed;
+}
+
+.text-flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.text-flex-col {
   display: flex;
   flex-direction: column;
 }
@@ -31,4 +89,49 @@ h1 {
 .blinking-cursor::after{
   content: "|";
   animation: blink 1s step-start infinite;
+  margin-left: 0.5rem;
+}
+
+.leaf {
+  width: 30px;
+  position: fixed;
+  color: #F05454;
+}
+.leaf:nth-child(1n) {
+  bottom: 5%;
+  left: -10%;
+  animation: blowing 12s 1s linear infinite;
+}
+.leaf:nth-child(2n) {
+  bottom: 10vh;
+  left: -10%;
+  animation: blowing 6s linear infinite;
+}
+.leaf:nth-child(3n) {
+  bottom: 20vh;
+  left: -10%;
+  animation: blowing 9s 3s linear infinite;
+}
+.leaf:nth-child(4n) {
+  bottom: 0vh;
+  left: -10%;
+  animation: blowing 9s 3s linear infinite;
+}
+
+@keyframes blowing {
+  0% {
+    transform: translate(0,0) rotate(0)
+  }
+  20% {
+    transform: translate(25vw, -10vh) rotate(170deg)
+  }
+  65% {
+    transform: translate(65vw, -12vh) rotate(550deg)
+  }
+  80% {
+    transform: translate(80vw, -17vh) rotate(740deg)
+  }
+  100% {
+    transform: translate(110vw, -25vh) rotate(920deg)
+  }
 }
